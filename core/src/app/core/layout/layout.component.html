@@ -1,0 +1,50 @@
+<mat-toolbar class="sidenav mat-elevation-z6 zindex2">
+  <mat-icon (click)="toogleSidenav()" class="button-pointer">menu</mat-icon>
+  <span>Module federation sample</span>
+</mat-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    class="sidenav"
+    [ngStyle]="{ 'width.em': sidenavWidth }"
+    [opened]="sidenavStatus"
+  >
+    <mat-nav-list>
+      <mat-list-item routerLink="home" routerLinkActive="active">
+        <mat-icon mat-list-icon class="text-white">home</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>Home</h5>
+        </div>
+      </mat-list-item>
+      <mat-list-item routerLink="app1" routerLinkActive="active">
+        <mat-icon mat-list-icon class="text-white">face</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>app1/</h5>
+        </div>
+      </mat-list-item>
+      <mat-list-item routerLink="app1/create" routerLinkActive="active">
+        <mat-icon mat-list-icon class="text-white">donut_large</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>app1/create</h5>
+        </div>
+      </mat-list-item>
+      <mat-list-item routerLink="app2" routerLinkActive="active">
+        <mat-icon mat-list-icon class="text-white">euro_symbol</mat-icon>
+        <div fxFlex="10"></div>
+        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+          <h5>app2/</h5>
+        </div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
